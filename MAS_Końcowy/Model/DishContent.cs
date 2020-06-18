@@ -5,7 +5,8 @@ using System.Text;
 
 namespace MAS_Końcowy.Model
 {
-    public class DishIngredients
+    //TODO: Zmienić nazwę na zgodne z konwencją DishIngredients
+    public class DishContent
     {
         public int DishId { get; set; }
         public Dish Dish { get; set; }
@@ -13,9 +14,9 @@ namespace MAS_Końcowy.Model
         public Ingredient Ingredient { get; set; }
         public double Quantity { get; set; }
 
-        DishIngredients() { }
+        DishContent() { }
 
-        DishIngredients(Dish dish, Ingredient ingredient, double quantity)
+        DishContent(Dish dish, Ingredient ingredient, double quantity)
         {
             Dish = dish;
             Ingredient = ingredient;

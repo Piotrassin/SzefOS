@@ -23,7 +23,8 @@ namespace MAS_Końcowy.Model
         public DishType Type { get; private set; }
         public DegreeOfAnimalOrigin AnimalOrigin { get; private set; }
 
-        public ICollection<DishIngredients> DishIngredients { get; set; }
+        public ICollection<DishContent> DishIngredients { get; set; }
+        public Menu Menu { get; set; }
 
 
         public Dish() { }
@@ -37,7 +38,7 @@ namespace MAS_Końcowy.Model
             GlutenFree = glutenFree;
         }
 
-        public async static void AddContent(int currId, DishIngredients content)
+        public async static void AddContent(int currId, DishContent content)
         {
             using (var context = new MASContext())
             {

@@ -11,7 +11,7 @@ namespace MAS_Końcowy.Model
         public int Id { get; set; }
         public String Name { get; set; }
         public Decimal PricePerKg { get; set; }
-        public ICollection<DishIngredients> DishContents { get; set; }
+        public ICollection<DishContent> DishContents { get; set; }
 
         public Ingredient() { }
 

@@ -16,10 +16,10 @@ namespace MAS_Końcowy.Model
         public MASContext()
         {
         }
-
+        public DbSet<Menu> Menus { get; set; }
         public DbSet<Dish> Dishes { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
-        public DbSet<DishIngredients> DishContents { get; set; }
+        public DbSet<DishContent> DishContents { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -27,19 +27,27 @@ namespace MAS_Końcowy.Model
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Menu>()
+                .HasKey(a => a.Id);
+            modelBuilder.Entity<Menu>()
+                .HasMany(b => b.Dishes)
+                .WithOne(c => c.Menu)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
+
             modelBuilder.Entity<Dish>()
                 .HasKey(a => a.Id);
             modelBuilder.Entity<Ingredient>()
                 .HasKey(a => a.Id);
 
             //many to many
-            modelBuilder.Entity<DishIngredients>()
+            modelBuilder.Entity<DishContent>()
                 .HasKey(di => new { di.DishId, di.IngredientId });
-            modelBuilder.Entity<DishIngredients>()
+            modelBuilder.Entity<DishContent>()
                 .HasOne(a => a.Dish)
                 .WithMany(b => b.DishIngredients)
                 .HasForeignKey(c => c.DishId);
-            modelBuilder.Entity<DishIngredients>()
+            modelBuilder.Entity<DishContent>()
                 .HasOne(a => a.Ingredient)
                 .WithMany(b => b.DishContents)
                 .HasForeignKey(c => c.IngredientId);
