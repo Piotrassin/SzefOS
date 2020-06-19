@@ -1,9 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-using System.Configuration;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Text;
 
 namespace MAS_Końcowy.Model
 {
@@ -16,6 +12,15 @@ namespace MAS_Końcowy.Model
         public MASContext()
         {
         }
+        //TPT
+        public DbSet<Person> People { get; set; }
+        public DbSet<IngredientsSupplier> IngredientSuppliers { get; set; }
+        //TPH
+        public DbSet<Cook> Cooks { get; set; }
+        public DbSet<Waiter> Waiters { get; set; }
+        public DbSet<Deliverer> Deliverers { get; set; }
+        public DbSet<Manager> Managers { get; set; }
+
         public DbSet<Menu> Menus { get; set; }
         public DbSet<Dish> Dishes { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
@@ -27,6 +32,17 @@ namespace MAS_Końcowy.Model
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //TPT
+            //modelBuilder.Entity<Person>().ToTable("People");
+            //modelBuilder.Entity<IngredientsSupplier>().ToTable("IngredientsSuppliers");
+            //TPT & TPH
+            //modelBuilder.Entity<Employee>().ToTable("Employees")
+            //    .HasDiscriminator<String>("RoleName")
+            //    .HasValue<Cook>("Cook")
+            //    .HasValue<Waiter>("Waiter")
+            //    .HasValue<Deliverer>("Deliverer")
+            //    .HasValue<Manager>("Manager");
+
             modelBuilder.Entity<Menu>()
                 .HasKey(a => a.Id);
             modelBuilder.Entity<Menu>()
@@ -51,6 +67,20 @@ namespace MAS_Końcowy.Model
                 .HasOne(a => a.Ingredient)
                 .WithMany(b => b.DishContents)
                 .HasForeignKey(c => c.IngredientId);
+
+            modelBuilder.Entity<OrderContent>()
+                .HasKey(di => new { di.DishId, di.OrderId });
+            modelBuilder.Entity<OrderContent>()
+                .HasOne(a => a.Dish)
+                .WithMany(b => b.OrderContents)
+                .HasForeignKey(c => c.DishId);
+            modelBuilder.Entity<OrderContent>()
+                .HasOne(a => a.Order)
+                .WithMany(b => b.OrderContents)
+                .HasForeignKey(c => c.OrderId);
+
+
+
         }
     }
 }

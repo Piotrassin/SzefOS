@@ -30,7 +30,17 @@ namespace MAS_Końcowy
 
             //dishesList.Add(new Dish("pizza", 30.00m, DishType.Główne, DegreeOfAnimalOrigin.Wegetariańskie, false));
             DataGridDishes.ItemsSource = dishesList;
+
+            abc();
         }
 
+        public void abc()
+        {
+            using (var context = new MASContext())
+            {
+                //Console.WriteLine(context.People.OfType<Waiter>().ToString());
+
+            }
+        }
     }
 }

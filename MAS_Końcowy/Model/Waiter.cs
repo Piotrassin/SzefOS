@@ -6,6 +6,7 @@ namespace MAS_Końcowy.Model
 {
     public class Waiter : Employee
     {
+        public ICollection<Order> HandledOrders { get; set; }
         public Waiter() : base() { }
 
         public Waiter(String name, String lname, String phoneNum, DateTime hireDate, String pesel, Decimal sal, DateTime? sanepidExpDate)

@@ -10,13 +10,11 @@ namespace MAS_Końcowy.Model
         public String Name { get; set; }
         public String Lastname { get; set; }
         public String PhoneNumber { get; set; }
+        public Address Address { get; set; }
 
-        public Person()
-        {
+        protected Person() { }
 
-        }
-
-        public Person(String name, String lname, String phoneNum)
+        protected Person(String name, String lname, String phoneNum)
         {
             Name = name;
             Lastname = lname;

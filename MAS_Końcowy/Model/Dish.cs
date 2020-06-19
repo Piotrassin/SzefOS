@@ -23,6 +23,7 @@ namespace MAS_Końcowy.Model
         public DishType Type { get; private set; }
         public DegreeOfAnimalOrigin AnimalOrigin { get; private set; }
 
+        public ICollection<OrderContent> OrderContents { get; set; }
         public ICollection<DishContent> DishIngredients { get; set; }
         public Menu Menu { get; set; }
 

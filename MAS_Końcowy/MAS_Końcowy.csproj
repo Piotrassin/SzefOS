@@ -15,6 +15,22 @@
     <Compile Remove="Migrations\20200618124516_menu.Designer.cs" />
     <Compile Remove="Migrations\20200618141754_menu.cs" />
     <Compile Remove="Migrations\20200618141754_menu.Designer.cs" />
+    <Compile Remove="Migrations\20200619163308_personInheritance.cs" />
+    <Compile Remove="Migrations\20200619163308_personInheritance.Designer.cs" />
+    <Compile Remove="Migrations\20200619163956_personInheritance.cs" />
+    <Compile Remove="Migrations\20200619163956_personInheritance.Designer.cs" />
+    <Compile Remove="Migrations\20200619164134_personInheritance.cs" />
+    <Compile Remove="Migrations\20200619164134_personInheritance.Designer.cs" />
+    <Compile Remove="Migrations\20200619164200_personInheritance.cs" />
+    <Compile Remove="Migrations\20200619164200_personInheritance.Designer.cs" />
+    <Compile Remove="Migrations\20200619164307_personInheritance.cs" />
+    <Compile Remove="Migrations\20200619164307_personInheritance.Designer.cs" />
+    <Compile Remove="Migrations\20200619164423_personInheritance.cs" />
+    <Compile Remove="Migrations\20200619164423_personInheritance.Designer.cs" />
+    <Compile Remove="Migrations\20200619164501_personInheritance.cs" />
+    <Compile Remove="Migrations\20200619164501_personInheritance.Designer.cs" />
+    <Compile Remove="Migrations\20200619164520_personInheritance.cs" />
+    <Compile Remove="Migrations\20200619164520_personInheritance.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

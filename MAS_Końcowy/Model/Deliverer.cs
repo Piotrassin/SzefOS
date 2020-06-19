@@ -7,6 +7,7 @@ namespace MAS_Końcowy.Model
     public class Deliverer : Employee
     {
         public String DrivingLicense { get; set; }
+        public ICollection<Order> DeliveredOrders { get; set; }
 
         public Deliverer() : base() { }
 

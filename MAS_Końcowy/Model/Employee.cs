@@ -14,9 +14,9 @@ namespace MAS_Końcowy.Model
         public static Decimal MinimumSalary { get; set; } = 1400.0m;
         public static double MaximumSalaryModifier { get; set; } = 0.1;
 
-        public Employee() : base() { }
+        protected Employee() : base() { }
 
-        public Employee(String name, String lname, String phoneNum, DateTime hireDate, String pesel, Decimal sal, DateTime? sanepidExpDate)
+        protected Employee(String name, String lname, String phoneNum, DateTime hireDate, String pesel, Decimal sal, DateTime? sanepidExpDate)
             : base(name, lname, phoneNum)
         {
             HireDate = hireDate;
