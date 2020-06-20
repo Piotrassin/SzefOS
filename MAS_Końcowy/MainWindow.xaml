@@ -49,9 +49,12 @@
             </DataGrid>
 
             <StackPanel Grid.Column="1">
-
+                <!--
+                <TextBlock x:Name="TextBlockMarginProfit" Binding="{Binding }"/>
+                -->
             </StackPanel>
         </Grid>
+        <DataGrid x:Name="Tests"></DataGrid>
 
     </StackPanel>
     

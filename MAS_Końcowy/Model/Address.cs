@@ -13,14 +13,22 @@ namespace MAS_Końcowy.Model
         public String Postcode { get; set; }
         public String CityName { get; set; }
 
-        Address() { }
-        Address(String strName, String buildingNum, String flatNum, String postcode, String city)
+        public Person Person { get; set; }
+        public ICollection<Order> Orders { get; set; }
+
+        public Address() { }
+        public Address(String strName, String buildingNum, String flatNum, String postcode, String city)
         {
             StreetName = strName;
             BuildingNumber = buildingNum;
             FlatNumber = flatNum;
             Postcode = postcode;
             CityName = city;
+        }
+
+        public override string ToString()
+        {
+            return StreetName + ", " + BuildingNumber + ", " + FlatNumber + ", " + Postcode + ", " + CityName;
         }
     }
 }

@@ -3,15 +3,17 @@ using System;
 using MAS_Końcowy.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace MAS_Końcowy.Migrations
 {
     [DbContext(typeof(MASContext))]
-    partial class MASContextModelSnapshot : ModelSnapshot
+    [Migration("20200620153754_mappedAssociations")]
+    partial class mappedAssociations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -236,6 +238,9 @@ namespace MAS_Końcowy.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int>("AddressId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Discriminator")
                         .IsRequired()

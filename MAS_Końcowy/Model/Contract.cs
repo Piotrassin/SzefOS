@@ -11,6 +11,9 @@ namespace MAS_Końcowy.Model
         public DateTime ExpirationDate { get; set; }
         public int NumberOfDeliveries { get; set; }
         public String Description { get; set; }
+        public IngredientsSupplier Supplier { get; set; }
+        public ICollection<ContractIngredient> ContractIngredients { get; set; }
+
 
         public Contract() { }
 

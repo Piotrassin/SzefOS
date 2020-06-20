@@ -11,8 +11,10 @@ namespace MAS_Końcowy.Model
 
         public Deliverer() : base() { }
 
-        public Deliverer(String name, String lname, String phoneNum, DateTime hireDate, String pesel, Decimal sal, String drivingLicense, DateTime? sanepidExpDate)
-            : base(name, lname, phoneNum, hireDate, pesel, sal, sanepidExpDate) 
+        public Deliverer(
+            String name, String lname, String phoneNum, Address address, DateTime hireDate, 
+            String pesel, Decimal sal, String drivingLicense, DateTime? sanepidExpDate)
+            : base(name, lname, phoneNum, address, hireDate, pesel, sal, sanepidExpDate) 
         {
             DrivingLicense = drivingLicense;
         }

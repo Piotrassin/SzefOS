@@ -14,11 +14,12 @@ namespace MAS_Końcowy.Model
 
         protected Person() { }
 
-        protected Person(String name, String lname, String phoneNum)
+        protected Person(String name, String lname, String phoneNum, Address address)
         {
             Name = name;
             Lastname = lname;
             PhoneNumber = phoneNum;
+            Address = address;
         }
     }
 }

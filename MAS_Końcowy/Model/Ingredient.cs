@@ -7,11 +7,11 @@ namespace MAS_Końcowy.Model
 {
     public class Ingredient
     {
-        //[Key]
         public int Id { get; set; }
         public String Name { get; set; }
         public Decimal PricePerKg { get; set; }
         public ICollection<DishContent> DishContents { get; set; }
+        public ICollection<ContractIngredient> ContractIngredients { get; set; }
 
         public Ingredient() { }
 

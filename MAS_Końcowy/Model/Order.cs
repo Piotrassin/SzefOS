@@ -9,6 +9,7 @@ namespace MAS_Końcowy.Model
         public DateTime OrderDate { get; set; }
         public Decimal Price { get; set; }  //Wyliczable
         public int? TableNumber { get; set; }
+
         public Address DeliveryAddress { get; set; }
         public Cook Cook { get; set; }
         public Waiter Waiter { get; set; }

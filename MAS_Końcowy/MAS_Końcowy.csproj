@@ -31,6 +31,10 @@
     <Compile Remove="Migrations\20200619164501_personInheritance.Designer.cs" />
     <Compile Remove="Migrations\20200619164520_personInheritance.cs" />
     <Compile Remove="Migrations\20200619164520_personInheritance.Designer.cs" />
+    <Compile Remove="Migrations\20200620153425_mappedAssociations.cs" />
+    <Compile Remove="Migrations\20200620153425_mappedAssociations.Designer.cs" />
+    <Compile Remove="Migrations\20200620153514_mappedAssociations.cs" />
+    <Compile Remove="Migrations\20200620153514_mappedAssociations.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

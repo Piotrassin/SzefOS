@@ -25,7 +25,9 @@ namespace MAS_Końcowy.Model
         public DbSet<Dish> Dishes { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<DishContent> DishContents { get; set; }
-
+        public DbSet<Contract> Contracts { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
           => optionsBuilder.UseNpgsql("Host=localhost;Database=MAS_db;Username=postgres;Password=admin");
@@ -43,6 +45,8 @@ namespace MAS_Końcowy.Model
             //    .HasValue<Deliverer>("Deliverer")
             //    .HasValue<Manager>("Manager");
 
+
+
             modelBuilder.Entity<Menu>()
                 .HasKey(a => a.Id);
             modelBuilder.Entity<Menu>()
@@ -56,7 +60,7 @@ namespace MAS_Końcowy.Model
             modelBuilder.Entity<Ingredient>()
                 .HasKey(a => a.Id);
 
-            //many to many
+            //many to many DISH - INGREDIENT
             modelBuilder.Entity<DishContent>()
                 .HasKey(di => new { di.DishId, di.IngredientId });
             modelBuilder.Entity<DishContent>()
@@ -68,6 +72,7 @@ namespace MAS_Końcowy.Model
                 .WithMany(b => b.DishContents)
                 .HasForeignKey(c => c.IngredientId);
 
+            //many to many ORDER - DISH
             modelBuilder.Entity<OrderContent>()
                 .HasKey(di => new { di.DishId, di.OrderId });
             modelBuilder.Entity<OrderContent>()
@@ -79,7 +84,29 @@ namespace MAS_Końcowy.Model
                 .WithMany(b => b.OrderContents)
                 .HasForeignKey(c => c.OrderId);
 
+            //many to many CONTRACT - INGREDIENT
+            modelBuilder.Entity<ContractIngredient>()
+                .HasKey(di => new { di.ContractId, di.IngredientId });
+            modelBuilder.Entity<ContractIngredient>()
+                .HasOne(a => a.Contract)
+                .WithMany(b => b.ContractIngredients)
+                .HasForeignKey(c => c.ContractId);
+            modelBuilder.Entity<ContractIngredient>()
+                .HasOne(a => a.Ingredient)
+                .WithMany(b => b.ContractIngredients)
+                .HasForeignKey(c => c.IngredientId);
 
+            //Order - Address
+            modelBuilder.Entity<Address>()
+                .HasMany(a => a.Orders)
+                .WithOne(b => b.DeliveryAddress).OnDelete(DeleteBehavior.Restrict);
+
+            //Person - Address
+            modelBuilder.Entity<Person>()
+                .HasOne(a => a.Address)
+                .WithOne(b => b.Person)
+                .HasForeignKey(nameof(Person.Address))
+                .IsRequired();
 
         }
     }

@@ -6,7 +6,6 @@ namespace MAS_Końcowy.Model
 {
     public abstract class Employee : Person
     {
-        //public int PersonId { get; set; }
         public DateTime HireDate { get; set; }
         public String PESEL { get; set; }
         public DateTime? SanepidBookExpirationDate { get; set; }
@@ -14,10 +13,13 @@ namespace MAS_Końcowy.Model
         public static Decimal MinimumSalary { get; set; } = 1400.0m;
         public static double MaximumSalaryModifier { get; set; } = 0.1;
 
+
         protected Employee() : base() { }
 
-        protected Employee(String name, String lname, String phoneNum, DateTime hireDate, String pesel, Decimal sal, DateTime? sanepidExpDate)
-            : base(name, lname, phoneNum)
+        protected Employee(
+            String name, String lname, String phoneNum, Address address, 
+            DateTime hireDate, String pesel, Decimal sal, DateTime? sanepidExpDate)
+            : base(name, lname, phoneNum, address)
         {
             HireDate = hireDate;
             PESEL = pesel;

@@ -12,10 +12,13 @@ namespace MAS_Końcowy.Model
         Przystawka,
         Główne,
         Deser };
-    public enum DegreeOfAnimalOrigin { Mięsne, Wegetariańskie, Wegańskie };
+    public enum DegreeOfAnimalOrigin { 
+        Mięsne, 
+        Wegetariańskie, 
+        Wegańskie };
+
     public class Dish
     {
-        //[Key]
         public int Id { get; private set; }
         public String Name { get; private set; }
         public Decimal Price { get; private set; }
@@ -23,23 +26,27 @@ namespace MAS_Końcowy.Model
         public DishType Type { get; private set; }
         public DegreeOfAnimalOrigin AnimalOrigin { get; private set; }
 
+        public Menu Menu { get; set; }
         public ICollection<OrderContent> OrderContents { get; set; }
         public ICollection<DishContent> DishIngredients { get; set; }
-        public Menu Menu { get; set; }
+        
 
 
         public Dish() { }
 
-        public Dish(String name, Decimal price, DishType type, DegreeOfAnimalOrigin degOfAnimal, bool glutenFree)
+        public Dish(
+            String name, Decimal price, DishType type, 
+            DegreeOfAnimalOrigin degOfAnimal, bool glutenFree, Menu menu)
         {
             Name = name;
             Price = price;
             Type = type;
             AnimalOrigin = degOfAnimal;
             GlutenFree = glutenFree;
+            Menu = menu;
         }
 
-        public async static void AddContent(int currId, DishContent content)
+        public async static void AddIngredient(int currId, DishContent content)
         {
             using (var context = new MASContext())
             {
