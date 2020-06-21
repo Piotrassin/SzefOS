@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace MAS_Końcowy.Model
 {
-    public class IngredientsSupplier : Person
+    public class IngredientsSupplier
+        //: Person
     {
+        [Key, ForeignKey("Person")]
+        public int Id { get; set; }
         public String NIP { get; set; }
         public String CompanyName { get; set; }
         public bool HasRefrigeratedTrailers { get; set; }
@@ -14,14 +19,14 @@ namespace MAS_Końcowy.Model
 
         public IngredientsSupplier() : base() { }
 
-        public IngredientsSupplier(
-            String name, String lname, String phoneNum, Address address, 
-            String nip, String compName, bool hasRefrigeratedTrailers)
-            : base(name, lname, phoneNum, address)
-        {
-            NIP = nip;
-            CompanyName = compName;
-            HasRefrigeratedTrailers = hasRefrigeratedTrailers;
-        }
+        //public IngredientsSupplier(
+        //    String name, String lname, String phoneNum, Address address, 
+        //    String nip, String compName, bool hasRefrigeratedTrailers)
+        //    : base(name, lname, phoneNum, address)
+        //{
+        //    NIP = nip;
+        //    CompanyName = compName;
+        //    HasRefrigeratedTrailers = hasRefrigeratedTrailers;
+        //}
     }
 }

@@ -35,6 +35,16 @@
     <Compile Remove="Migrations\20200620153425_mappedAssociations.Designer.cs" />
     <Compile Remove="Migrations\20200620153514_mappedAssociations.cs" />
     <Compile Remove="Migrations\20200620153514_mappedAssociations.Designer.cs" />
+    <Compile Remove="Migrations\20200621214832_EmployeeXORED.cs" />
+    <Compile Remove="Migrations\20200621214832_EmployeeXORED.Designer.cs" />
+    <Compile Remove="Migrations\20200621214925_EmployeeXORED.cs" />
+    <Compile Remove="Migrations\20200621214925_EmployeeXORED.Designer.cs" />
+    <Compile Remove="Migrations\20200621215403_EmployeeXORED.cs" />
+    <Compile Remove="Migrations\20200621215403_EmployeeXORED.Designer.cs" />
+    <Compile Remove="Migrations\20200621220008_EmployeeXORED.cs" />
+    <Compile Remove="Migrations\20200621220008_EmployeeXORED.Designer.cs" />
+    <Compile Remove="Migrations\20200621220153_EmployeeXORED.cs" />
+    <Compile Remove="Migrations\20200621220153_EmployeeXORED.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

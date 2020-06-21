@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace MAS_Końcowy.Model
 {
-    public class Employee : Person
+    public class Employee
+        //: Person
     {
+        [Key, ForeignKey("Person")]
+        public int Id { get; set; }
         public DateTime HireDate { get; set; }
         public String PESEL { get; set; }
         public DateTime? SanepidBookExpirationDate { get; set; }
@@ -101,15 +106,15 @@ namespace MAS_Końcowy.Model
 
         public Employee() : base() { }
 
-        public Employee(
-            String name, String lname, String phoneNum, Address address,  DateTime hireDate, 
-            String pesel, Decimal sal, DateTime? sanepidExpDate) : base(name, lname, phoneNum, address)
-        {
-            HireDate = hireDate;
-            PESEL = pesel;
-            SanepidBookExpirationDate = sanepidExpDate;
-            Salary = sal;
-        }
+        //public Employee(
+        //    String name, String lname, String phoneNum, Address address,  DateTime hireDate, 
+        //    String pesel, Decimal sal, DateTime? sanepidExpDate) : base(name, lname, phoneNum, address)
+        //{
+        //    HireDate = hireDate;
+        //    PESEL = pesel;
+        //    SanepidBookExpirationDate = sanepidExpDate;
+        //    Salary = sal;
+        //}
 
         public void setSalary(Decimal raise)
         {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MAS_Końcowy.Model
 {
-    public abstract class Person
+    public class Person
     {
         public int Id { get; set; }
         public String Name { get; set; }
