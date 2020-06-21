@@ -26,7 +26,23 @@ namespace MAS_Końcowy.Model
         public DishType Type { get; private set; }
         public DegreeOfAnimalOrigin AnimalOrigin { get; private set; }
 
-        public Menu Menu { get; set; }
+        private Menu _menu;
+        public Menu Menu
+        {
+            get => _menu;
+            set
+            {
+                _menu = value;
+                //if (_menu != value)
+                //{
+                //    if (_menu != null) { _menu.RemoveDish(this); }
+
+                //    _menu = value;
+
+                //    if (_menu != null) { value.AddDish(this); }
+                //}
+            }
+        }
         public ICollection<OrderContent> OrderContents { get; set; }
         public ICollection<DishContent> DishIngredients { get; set; }
         
@@ -46,21 +62,22 @@ namespace MAS_Końcowy.Model
             Menu = menu;
         }
 
-        public async static void AddIngredient(int currId, DishContent content)
+        internal void AddOrderDish(OrderContent orderContent)
         {
-            using (var context = new MASContext())
-            {
-                var curDish = await context.Dishes.Where(x => x.Id == currId).FirstOrDefaultAsync();
-
-                if (!curDish.DishIngredients.Contains(content))
-                {
-                    curDish.DishIngredients.Add(content);
-                    context.Entry(curDish).State = EntityState.Modified;
-                    context.SaveChanges();
-                }
-            }
+            throw new NotImplementedException();
         }
 
-        
+        //public void AddOrder(Order order, int count)
+        //{
+        //    throw new NotImplementedException();
+        //    //OrderDish oDish = new OrderDish(order, this, count);
+        //}
+
+
+
+        override public String ToString()
+        {
+            return "Name: " + Name + ", Price " + Price + " PLN";
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace MAS_Końcowy.Model
@@ -11,12 +12,23 @@ namespace MAS_Końcowy.Model
         public ICollection<Dish> Dishes { get; set; }
 
 
-        public Menu() { }
 
-        public Menu(double profitMargin)
-        {
-            ProfitMargin = profitMargin;
+        //public Menu() { }
 
-        }
+        //public Menu(double profitMargin)
+        //{
+        //    ProfitMargin = profitMargin;
+
+        //}
+
+        //public void RemoveDish(Dish dish)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public void AddDish(Dish dish)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

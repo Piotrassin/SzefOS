@@ -13,36 +13,30 @@ namespace MAS_Końcowy
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ObservableCollection<Dish> dishesList = new ObservableCollection<Dish>();
         public MainWindow()
         {
             InitializeComponent();
-
-            //abc();
-            //dishesList.Add(new Dish("pizza", 30.00m, DishType.Główne, DegreeOfAnimalOrigin.Wegetariańskie, false));
-            Tests.ItemsSource = def();
-            DataGridDishes.ItemsSource = dishesList;
-
-            
         }
 
-        public void abc()
+        private void Składniki_Click(object sender, RoutedEventArgs e)
         {
-            using (var context = new MASContext())
-            {
-                context.People.Add(
-                    new Cook("Jan", "Kowalski", "+48555123456",  new Address("Aleje Jerozolimskie", "123", "12", "01-123", "Warszawa"), 
-                    new DateTime(1990, 10, 10), "90101012345", 1500.0m, new DateTime(2021, 3, 12)));
-                context.SaveChanges();
-            }
+
         }
 
-        public IEnumerable<Person> def()
+        private void Menu_Click(object sender, RoutedEventArgs e)
         {
-            using (var context = new MASContext())
-            {
-                return context.People.Include(a => a.Address).Where(a => a.Id >= 0).ToList();
-            }
+            MenuWindow menu = new MenuWindow();
+            menu.ShowDialog();
+        }
+
+        private void Pracownicy_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Dostawy_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

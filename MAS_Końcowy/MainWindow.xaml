@@ -8,7 +8,7 @@
         Title="MainWindow" Height="600" Width="1000">
 
     <StackPanel>
-        <Grid>
+        <Grid Background="AliceBlue">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -18,43 +18,37 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            
+
             <Label Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Content="SzefOS"/>
-            <Button Grid.Column="1" Padding="5 10" Content="Składniki"/>
-            <Button Grid.Column="2" Padding="5 10" Content="Menu"/>
-            <Button Grid.Column="3" Padding="5 10" Content="Ekran główny"/>
-            <Button Grid.Column="4" Padding="5 10" Content="Pracownicy"/>
-            <Button Grid.Column="5" Padding="5 10" Content="Dostawy"/>
+            <Label Grid.Column="3" Padding="5 10" Content="Ekran główny" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Grid>
 
-        <Label Padding="20 30 0 10" FontSize="14" Content="Wyświetlanie menu"/>
-        <Grid>
+
+        <Grid Margin="0 150">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <DataGrid x:Name="DataGridDishes" Grid.Column="0" CanUserResizeRows="False" CanUserResizeColumns="False"
-                      CanUserDeleteRows="False" CanUserAddRows="False" AreRowDetailsFrozen="False" 
-                      IsReadOnly="True" AutoGenerateColumns="False" SelectionUnit="Cell">
-
-                <DataGrid.Columns>
-                    <DataGridTextColumn Width="*" Header="Nazwa" Binding="{Binding Name}"/>
-                    <DataGridTextColumn Width="2*" Header="Składniki" Binding="{Binding Składniki}"/>
-                    <DataGridTextColumn Width="*" Header="Typ" Binding="{Binding Type}"/>
-                    <DataGridTextColumn Width="*" Header="Dieta" Binding="{Binding AnimalOrigin}"/>
-                    <DataGridTextColumn Width="*" Header="Cena" Binding="{Binding Price}"/>
-                    <DataGridTextColumn Width="*" Header="Opcje" Binding="{Binding Opcje}"/>
-                </DataGrid.Columns>
-            </DataGrid>
-
-            <StackPanel Grid.Column="1">
-                <!--
-                <TextBlock x:Name="TextBlockMarginProfit" Binding="{Binding }"/>
-                -->
-            </StackPanel>
+            <Button Grid.Column="1" Width="160" Margin="10" Padding="10 40" Content="Składniki" Click="Składniki_Click" />
+            <Button Grid.Column="2" Width="160" Margin="10" Padding="10 40" Content="Menu" Click="Menu_Click"/>
+            <Button Grid.Column="3" Width="160" Margin="10" Padding="10 40" Content="Pracownicy" Click="Pracownicy_Click" />
+            <Button Grid.Column="4" Width="160" Margin="10" Padding="10 40" Content="Dostawy" Click="Dostawy_Click" />
         </Grid>
-        <DataGrid x:Name="Tests"></DataGrid>
+
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="1" Content="Tryb Kierownika" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Button Grid.Column="2" Content="Zmień"  Padding="10"/>
+        </Grid>
 
     </StackPanel>
     

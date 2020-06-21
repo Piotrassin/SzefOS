@@ -15,7 +15,7 @@ namespace MAS_Końcowy.Model
         //TPT
         public DbSet<Person> People { get; set; }
         public DbSet<IngredientsSupplier> IngredientSuppliers { get; set; }
-        //TPH
+
         public DbSet<Cook> Cooks { get; set; }
         public DbSet<Waiter> Waiters { get; set; }
         public DbSet<Deliverer> Deliverers { get; set; }
@@ -23,11 +23,13 @@ namespace MAS_Końcowy.Model
 
         public DbSet<Menu> Menus { get; set; }
         public DbSet<Dish> Dishes { get; set; }
-        public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<DishContent> DishContents { get; set; }
+        public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Contract> Contracts { get; set; }
+        public DbSet<ContractIngredient> ContractIngredients { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderContent> OrderContents { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
           => optionsBuilder.UseNpgsql("Host=localhost;Database=MAS_db;Username=postgres;Password=admin");
@@ -35,17 +37,11 @@ namespace MAS_Końcowy.Model
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //TPT
-            //modelBuilder.Entity<Person>().ToTable("People");
-            //modelBuilder.Entity<IngredientsSupplier>().ToTable("IngredientsSuppliers");
-            //TPT & TPH
-            //modelBuilder.Entity<Employee>().ToTable("Employees")
-            //    .HasDiscriminator<String>("RoleName")
-            //    .HasValue<Cook>("Cook")
-            //    .HasValue<Waiter>("Waiter")
-            //    .HasValue<Deliverer>("Deliverer")
-            //    .HasValue<Manager>("Manager");
+            modelBuilder.Entity<Person>().ToTable("People");
+            modelBuilder.Entity<IngredientsSupplier>().ToTable("IngredientsSuppliers");
+            modelBuilder.Entity<Employee>().ToTable("Employees");
 
-
+            modelBuilder.Entity<ContractIngredient>().HasKey(k => new { k.ContractId, k.IngredientId });
 
             modelBuilder.Entity<Menu>()
                 .HasKey(a => a.Id);
@@ -107,7 +103,6 @@ namespace MAS_Końcowy.Model
                 .WithOne(b => b.Person)
                 .HasForeignKey(nameof(Person.Address))
                 .IsRequired();
-
         }
     }
 }

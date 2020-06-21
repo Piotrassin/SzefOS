@@ -14,12 +14,36 @@ namespace MAS_Końcowy.Model
         public double Number { get; set; }
 
         public OrderContent() { }
-
         public OrderContent(Order order, Dish dish, double number)
         {
-            Order = order;
-            Dish = dish;
-            Number = number;
+            if (number < 1)
+            {
+                throw new Exception("Given dish count: " + number + ", has to be greater than 0");
+            }
+            else if (order == null)
+            {
+                throw new Exception("Given order " + order + " cannot by null.");
+            }
+            else if (dish == null)
+            {
+                throw new Exception("Given order " + order + " cannot by null.");
+            }
+            else
+            {
+                Order = order;
+                Dish = dish;
+                Number = number;
+                order.AddOrderDish(this);
+                dish.AddOrderDish(this);
+            }
+        }
+        public void Save(OrderContent oContent)
+        {
+            using (var context = new MASContext())
+            {
+                //context.Ord
+                context.SaveChanges();
+            }
         }
 
     }

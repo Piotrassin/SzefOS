@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MAS_Końcowy.Model
 {
@@ -11,7 +12,24 @@ namespace MAS_Końcowy.Model
         public int? TableNumber { get; set; }
 
         public Address DeliveryAddress { get; set; }
-        public Cook Cook { get; set; }
+
+        private Cook _cook;
+        public Cook Cook
+        {
+            get => _cook;
+
+            set
+            {
+                if (_cook != value)
+                {
+                    if (_cook != null) { _cook.RemoveOrder(this); }
+
+                    _cook = value;
+
+                    if (_cook != null) { _cook.AddOrder(this); }
+                }
+            }
+        }
         public Waiter Waiter { get; set; }
         public Deliverer Deliverer { get; set; }
         public ICollection<OrderContent> OrderContents { get; set; }
@@ -23,6 +41,28 @@ namespace MAS_Końcowy.Model
             OrderDate = orderDate;
             TableNumber = tableNumber;  //check XOR table / address, throw exception
             DeliveryAddress = deliveryAddress;
+        }
+
+        public void AddOrderDish(OrderContent orderContent)
+        {
+            if (!OrderContents.Contains(orderContent))
+            {
+                OrderContents.Add(orderContent);
+            }
+        }
+
+        //public void AddDish(Dish dish, int count)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        public String GetContents()
+        {
+            using (var context = new MASContext())
+            {
+
+            }
+            throw new NotImplementedException();
         }
     }
 }

@@ -3,15 +3,17 @@ using System;
 using MAS_Końcowy.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace MAS_Końcowy.Migrations
 {
     [DbContext(typeof(MASContext))]
-    partial class MASContextModelSnapshot : ModelSnapshot
+    [Migration("20200621152010_fixContractIngredient")]
+    partial class fixContractIngredient
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -85,7 +87,7 @@ namespace MAS_Końcowy.Migrations
 
                     b.HasIndex("IngredientId");
 
-                    b.ToTable("ContractIngredients");
+                    b.ToTable("ContractIngredient");
                 });
 
             modelBuilder.Entity("MAS_Końcowy.Model.Dish", b =>

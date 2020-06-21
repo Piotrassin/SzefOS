@@ -14,9 +14,9 @@ namespace MAS_Końcowy.Model
         public Ingredient Ingredient { get; set; }
         public double Quantity { get; set; }
 
-        DishContent() { }
+        public DishContent() { }
 
-        DishContent(Dish dish, Ingredient ingredient, double quantity)
+        public DishContent(Dish dish, Ingredient ingredient, double quantity)
         {
             Dish = dish;
             Ingredient = ingredient;
