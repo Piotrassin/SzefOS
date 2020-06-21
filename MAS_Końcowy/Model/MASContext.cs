@@ -15,6 +15,7 @@ namespace MAS_Końcowy.Model
         //TPT
         public DbSet<Person> People { get; set; }
         public DbSet<IngredientsSupplier> IngredientSuppliers { get; set; }
+        public DbSet<Employee> Employees { get; set; }
 
         public DbSet<Cook> Cooks { get; set; }
         public DbSet<Waiter> Waiters { get; set; }

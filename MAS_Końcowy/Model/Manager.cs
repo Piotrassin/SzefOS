@@ -4,14 +4,23 @@ using System.Text;
 
 namespace MAS_Końcowy.Model
 {
-    public class Manager : Employee
+    public class Manager
     {
-        public Manager() : base() { }
+        private Employee _employee;
+        public Employee Employee
+        {
+            get => _employee;
+            set
+            {
+                if (value != _employee)
+                {
+                    _employee = value;
+                    value.Manager = this;
+                }
+            }
+        }
 
-        public Manager(
-            String name, String lname, String phoneNum, Address address, 
-            DateTime hireDate, String pesel, Decimal sal, DateTime? sanepidExpDate)
-            : base(name, lname, phoneNum, address, hireDate, pesel, sal, sanepidExpDate) { }
+        public Manager() { }
 
     }
 }

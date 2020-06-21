@@ -6,17 +6,23 @@ namespace MAS_Końcowy.Model
 {
     public class Cook
     {
-        public Employee Employee { get; set; }
-        public ICollection<Order> CookedOrders { get; set; }
-
-        public Cook() { Employee = new Employee(); }
-
-        public Cook(
-            String name, String lname, String phoneNum, Address address, 
-            DateTime hireDate, String pesel, Decimal sal, DateTime? sanepidExpDate)
-        {
-            //Employee = new Employee(name, lname, phoneNum, address, hireDate, pesel, sal, sanepidExpDate);
+        private Employee _employee;
+        public Employee Employee 
+        { get => _employee; 
+          set
+            {
+                if(value != _employee)
+                {
+                    _employee = value;
+                    value.Cook = this;
+                }
+            } 
         }
+
+        public ICollection<Order> CookedOrders { get; set; }
+        
+
+        public Cook() { }
 
         internal void RemoveOrder(Order order)
         {
