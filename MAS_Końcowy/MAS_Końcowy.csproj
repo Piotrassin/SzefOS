@@ -7,47 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200617152422_init.cs" />
-    <Compile Remove="Migrations\20200617152422_init.Designer.cs" />
-    <Compile Remove="Migrations\20200617155352_init.cs" />
-    <Compile Remove="Migrations\20200617155352_init.Designer.cs" />
-    <Compile Remove="Migrations\20200618124516_menu.cs" />
-    <Compile Remove="Migrations\20200618124516_menu.Designer.cs" />
-    <Compile Remove="Migrations\20200618141754_menu.cs" />
-    <Compile Remove="Migrations\20200618141754_menu.Designer.cs" />
-    <Compile Remove="Migrations\20200619163308_personInheritance.cs" />
-    <Compile Remove="Migrations\20200619163308_personInheritance.Designer.cs" />
-    <Compile Remove="Migrations\20200619163956_personInheritance.cs" />
-    <Compile Remove="Migrations\20200619163956_personInheritance.Designer.cs" />
-    <Compile Remove="Migrations\20200619164134_personInheritance.cs" />
-    <Compile Remove="Migrations\20200619164134_personInheritance.Designer.cs" />
-    <Compile Remove="Migrations\20200619164200_personInheritance.cs" />
-    <Compile Remove="Migrations\20200619164200_personInheritance.Designer.cs" />
-    <Compile Remove="Migrations\20200619164307_personInheritance.cs" />
-    <Compile Remove="Migrations\20200619164307_personInheritance.Designer.cs" />
-    <Compile Remove="Migrations\20200619164423_personInheritance.cs" />
-    <Compile Remove="Migrations\20200619164423_personInheritance.Designer.cs" />
-    <Compile Remove="Migrations\20200619164501_personInheritance.cs" />
-    <Compile Remove="Migrations\20200619164501_personInheritance.Designer.cs" />
-    <Compile Remove="Migrations\20200619164520_personInheritance.cs" />
-    <Compile Remove="Migrations\20200619164520_personInheritance.Designer.cs" />
-    <Compile Remove="Migrations\20200620153425_mappedAssociations.cs" />
-    <Compile Remove="Migrations\20200620153425_mappedAssociations.Designer.cs" />
-    <Compile Remove="Migrations\20200620153514_mappedAssociations.cs" />
-    <Compile Remove="Migrations\20200620153514_mappedAssociations.Designer.cs" />
-    <Compile Remove="Migrations\20200621214832_EmployeeXORED.cs" />
-    <Compile Remove="Migrations\20200621214832_EmployeeXORED.Designer.cs" />
-    <Compile Remove="Migrations\20200621214925_EmployeeXORED.cs" />
-    <Compile Remove="Migrations\20200621214925_EmployeeXORED.Designer.cs" />
-    <Compile Remove="Migrations\20200621215403_EmployeeXORED.cs" />
-    <Compile Remove="Migrations\20200621215403_EmployeeXORED.Designer.cs" />
-    <Compile Remove="Migrations\20200621220008_EmployeeXORED.cs" />
-    <Compile Remove="Migrations\20200621220008_EmployeeXORED.Designer.cs" />
-    <Compile Remove="Migrations\20200621220153_EmployeeXORED.cs" />
-    <Compile Remove="Migrations\20200621220153_EmployeeXORED.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.5">
       <PrivateAssets>all</PrivateAssets>

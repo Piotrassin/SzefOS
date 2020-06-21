@@ -10,8 +10,9 @@ namespace MAS_Końcowy.Model
         //{ }
 
         public MASContext() { }
+
         //TPT
-        //public DbSet<Person> People { get; set; }
+        public DbSet<Person> People { get; set; }
         public DbSet<IngredientsSupplier> IngredientSuppliers { get; set; }
         public DbSet<Employee> Employees { get; set; }
 
@@ -31,36 +32,10 @@ namespace MAS_Końcowy.Model
         public DbSet<OrderContent> OrderContents { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-          => optionsBuilder.UseNpgsql("Host=localhost;Database=MAS_db;Username=postgres;Password=admin");
+          => optionsBuilder.UseNpgsql("Host=localhost;Database=MAS_DB;Username=postgres;Password=admin");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //TPT
-            //modelBuilder.Entity<Person>().ToTable("People");
-            //modelBuilder.Entity<IngredientsSupplier>().ToTable("IngredientsSuppliers");
-            //modelBuilder.Entity<Employee>().ToTable("Employees");
-
-            //XOR
-            //modelBuilder.Entity<Cook>().HasKey(e => e.Id);
-            //modelBuilder.Entity<Cook>().HasOne(u => u.Employee)
-            //            .WithOne()
-            //            .HasForeignKey<Employee>(p => p.Id)
-            //            .IsRequired()
-            //            .OnDelete(DeleteBehavior.Cascade);
-
-            //modeBuilder.Entity<User>().HasOne(u => u.ProfileItem)
-            //           .WithOne(u => u.User)
-            //           .HasForeignKey<Profile>(p => p.Id)
-            //           .IsRequired()
-            //           .OnDelete(DeleteBehavior.Cascade);
-
-
-            //modelBuilder.Entity<Cook>().HasOne(a => a.Employee).WithOne(a => a.Cook).HasForeignKey(a => a.Id);
-            //modelBuilder.Entity<Waiter>().HasOne(a => a.Employee).WithOne(a => a.Waiter).HasForeignKey(nameof(Cook.Employee));
-            //modelBuilder.Entity<Deliverer>().HasOne(a => a.Employee).WithOne(a => a.Deliverer).HasForeignKey(nameof(Cook.Employee));
-            //modelBuilder.Entity<Manager>().HasOne(a => a.Employee).WithOne(a => a.Manager).HasForeignKey(nameof(Cook.Employee));
-
-
             modelBuilder.Entity<ContractIngredient>().HasKey(k => new { k.ContractId, k.IngredientId });
 
             modelBuilder.Entity<Menu>()

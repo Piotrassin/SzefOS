@@ -326,7 +326,7 @@ namespace MAS_Końcowy.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Person");
+                    b.ToTable("People");
                 });
 
             modelBuilder.Entity("MAS_Końcowy.Model.Waiter", b =>

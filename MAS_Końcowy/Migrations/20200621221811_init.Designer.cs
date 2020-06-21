@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MAS_Końcowy.Migrations
 {
     [DbContext(typeof(MASContext))]
-    [Migration("20200621220410_EmployeeXORED")]
-    partial class EmployeeXORED
+    [Migration("20200621221811_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -328,7 +328,7 @@ namespace MAS_Końcowy.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Person");
+                    b.ToTable("People");
                 });
 
             modelBuilder.Entity("MAS_Końcowy.Model.Waiter", b =>
