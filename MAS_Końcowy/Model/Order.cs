@@ -30,7 +30,23 @@ namespace MAS_Końcowy.Model
                 }
             }
         }
-        public Waiter Waiter { get; set; }
+        private Waiter _waiter;
+        public Waiter Waiter
+        {
+            get => _waiter;
+
+            set
+            {
+                if (_waiter != value)
+                {
+                    if (_waiter != null) { _waiter.RemoveOrder(this); }
+
+                    _waiter = value;
+
+                    if (_waiter != null) { _waiter.AddOrder(this); }
+                }
+            }
+        }
         public Deliverer Deliverer { get; set; }
         public ICollection<OrderContent> OrderContents { get; set; }
 

@@ -25,6 +25,8 @@ namespace MAS_Końcowy
             contents = DishService.GetContents(dish.Id);
             InitializeComponent();
             DataGridDishes.ItemsSource = contents;
+            TextBlockPrice.Content = dish.Price;
+            DishNameTextBox.Text = dish.Name;
         }
 
         private void AddIngredient_Click(object sender, RoutedEventArgs e)

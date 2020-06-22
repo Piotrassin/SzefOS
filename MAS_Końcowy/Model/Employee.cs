@@ -103,28 +103,31 @@ namespace MAS_Końcowy.Model
             }
         }
 
+        public Employee() { }
 
-        public Employee() : base() { }
+        public Employee(DateTime hireDate, String pesel, Decimal sal, DateTime? sanepidExpDate)
+        {
+            HireDate = hireDate;
+            PESEL = pesel;
+            SanepidBookExpirationDate = sanepidExpDate;
+            Salary = sal;
+        }
 
-        //public Employee(
-        //    String name, String lname, String phoneNum, Address address,  DateTime hireDate, 
-        //    String pesel, Decimal sal, DateTime? sanepidExpDate) : base(name, lname, phoneNum, address)
-        //{
-        //    HireDate = hireDate;
-        //    PESEL = pesel;
-        //    SanepidBookExpirationDate = sanepidExpDate;
-        //    Salary = sal;
-        //}
+
+
+
+
+
 
         public void setSalary(Decimal raise)
         {
-            //TODO
+            Salary += raise;
         }
 
-        public void AssignToOrder(Order order)
-        {
-            //TODO
-        }
+        //public void AssignToOrder(Order order)
+        //{
+        //    //TODO
+        //}
 
         //public void setRole(Employee emp, ??)
     }

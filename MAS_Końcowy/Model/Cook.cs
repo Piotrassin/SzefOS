@@ -24,19 +24,31 @@ namespace MAS_Końcowy.Model
             } 
         }
 
-        public ICollection<Order> CookedOrders { get; set; }
+        public ICollection<Order> Orders { get; set; }
         
 
         public Cook() { }
 
+
+
+
+
         internal void RemoveOrder(Order order)
         {
-            throw new NotImplementedException();
+            if (Orders.Contains(order))
+            {
+                Orders.Remove(order);
+                order.Cook = null;
+            }
         }
 
         internal void AddOrder(Order order)
         {
-            throw new NotImplementedException();
+            if (!Orders.Contains(order))
+            {
+                Orders.Add(order);
+                order.Cook = this;
+            }
         }
     }
 }

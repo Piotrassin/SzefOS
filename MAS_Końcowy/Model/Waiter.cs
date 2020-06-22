@@ -24,15 +24,27 @@ namespace MAS_Końcowy.Model
                 }
             }
         }
-        public ICollection<Order> HandledOrders { get; set; }
+        public ICollection<Order> Orders { get; set; }
 
 
         public Waiter() { }
 
-        public void addOrder(Order newOrder)
+        internal void RemoveOrder(Order order)
         {
-            //TODO
+            if (Orders.Contains(order))
+            {
+                Orders.Remove(order);
+                order.Waiter = null;
+            }
         }
 
+        internal void AddOrder(Order order)
+        {
+            if (!Orders.Contains(order))
+            {
+                Orders.Add(order);
+                order.Waiter = null;
+            }
+        }
     }
 }

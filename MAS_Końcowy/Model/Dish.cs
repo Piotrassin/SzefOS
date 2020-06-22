@@ -20,11 +20,11 @@ namespace MAS_Końcowy.Model
     public class Dish
     {
         public int Id { get; private set; }
-        public String Name { get; private set; }
-        public Decimal Price { get; private set; }
-        public bool GlutenFree { get; private set; }
-        public DishType Type { get; private set; }
-        public DegreeOfAnimalOrigin AnimalOrigin { get; private set; }
+        public String Name { get; set; }
+        public Decimal Price { get; set; }
+        public bool GlutenFree { get; set; }
+        public DishType Type { get; set; }
+        public DegreeOfAnimalOrigin AnimalOrigin { get; set; }
 
         private Menu _menu;
         public Menu Menu
@@ -33,14 +33,14 @@ namespace MAS_Końcowy.Model
             set
             {
                 _menu = value;
-                //if (_menu != value)
-                //{
-                //    if (_menu != null) { _menu.RemoveDish(this); }
+                if (_menu != value)
+                {
+                    if (_menu != null) { _menu.RemoveDish(this); }
 
-                //    _menu = value;
+                    _menu = value;
 
-                //    if (_menu != null) { value.AddDish(this); }
-                //}
+                    if (_menu != null) { value.AddDish(this); }
+                }
             }
         }
         public ICollection<OrderContent> OrderContents { get; set; }

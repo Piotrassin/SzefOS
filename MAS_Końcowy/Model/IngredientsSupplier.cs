@@ -17,16 +17,13 @@ namespace MAS_Końcowy.Model
         public ICollection<Contract> Contracts { get; set; }
 
 
-        public IngredientsSupplier() : base() { }
+        public IngredientsSupplier() { }
 
-        //public IngredientsSupplier(
-        //    String name, String lname, String phoneNum, Address address, 
-        //    String nip, String compName, bool hasRefrigeratedTrailers)
-        //    : base(name, lname, phoneNum, address)
-        //{
-        //    NIP = nip;
-        //    CompanyName = compName;
-        //    HasRefrigeratedTrailers = hasRefrigeratedTrailers;
-        //}
+        public IngredientsSupplier(String nip, String compName, bool hasRefrigeratedTrailers)
+        {
+            NIP = nip;
+            CompanyName = compName;
+            HasRefrigeratedTrailers = hasRefrigeratedTrailers;
+        }
     }
 }

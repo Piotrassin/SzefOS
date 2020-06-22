@@ -25,8 +25,8 @@ namespace MAS_Końcowy
 
         private void Menu_Click(object sender, RoutedEventArgs e)
         {
-            MenuWindow menu = new MenuWindow();
-            menu.ShowDialog();
+            Window menuList = new MenuList();
+            menuList.ShowDialog();
         }
 
         private void Pracownicy_Click(object sender, RoutedEventArgs e)

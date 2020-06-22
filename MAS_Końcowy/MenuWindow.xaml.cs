@@ -22,13 +22,13 @@ namespace MAS_Końcowy
     /// </summary>
     public partial class MenuWindow : Window
     {
-        public Menu menu; 
-        public MenuWindow()
+        private Menu CurrentMenu; 
+        public MenuWindow(Menu menu)
         {
-            menu = MenuService.GetMenu(1);
+            CurrentMenu = MenuService.GetMenu(menu.Id);
             InitializeComponent();
-            TextBlockMarginProfit.Content = menu.ProfitMargin.ToString();
-            DataGridDishes.ItemsSource = MenuService.GetDishes(1);
+            TextBlockMarginProfit.Content = CurrentMenu.ProfitMargin.ToString();
+            DataGridDishes.ItemsSource = MenuService.GetDishes(menu.Id);
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -39,8 +39,14 @@ namespace MAS_Końcowy
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            Window edit = new MenuEditWindow(menu);
+            MenuEditWindow edit = new MenuEditWindow(CurrentMenu);
             edit.ShowDialog();
+
+            if (edit.IsEdited)
+            {
+                MenuService.ChangePrices(edit.Menu, edit.NewMargin);
+                UpdateData();
+            }
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -56,6 +62,13 @@ namespace MAS_Końcowy
                 Window dishWindow = new DishWindow(dish);
                 dishWindow.ShowDialog();
             }
+        }
+
+        private void UpdateData()
+        {
+            CurrentMenu = MenuService.GetMenu(CurrentMenu.Id);
+            TextBlockMarginProfit.Content = CurrentMenu.ProfitMargin.ToString();
+            DataGridDishes.ItemsSource = MenuService.GetDishes(1);
         }
     }
 }

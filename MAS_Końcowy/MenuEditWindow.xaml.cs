@@ -18,22 +18,41 @@ namespace MAS_Końcowy
     /// </summary>
     public partial class MenuEditWindow : Window
     {
-        private Menu _menu;
+        public Menu Menu { get; private set; }
+        public double NewMargin { get; private set; } = -1;
+        public bool IsEdited { get; private set; }
+        private bool correct = false;
         public MenuEditWindow(Menu menu)
         {
-            _menu = menu;
+            Menu = menu;
             InitializeComponent();
-            TextBoxProfitMargin.Text = _menu.ProfitMargin.ToString();
+            TextBoxProfitMargin.Text = Menu.ProfitMargin.ToString();
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            var dishesInMenu = MenuService.GetDishes(_menu.Id);
+            try
+            {
+                NewMargin = Convert.ToDouble(TextBoxProfitMargin.Text);
 
+                correct = true;
+            }
+            catch (Exception)
+            {
+                correct = false;
+                var a = MessageBox.Show("Podana wartość jest niepoprawna");
+            }
+
+            if (correct && NewMargin != Menu.ProfitMargin && NewMargin > 0)
+            {
+                IsEdited = true;
+                Close();
+            }
         }
 
         private void ReturnButton_Click(object sender, RoutedEventArgs e)
         {
+
             Close();
         }
     }

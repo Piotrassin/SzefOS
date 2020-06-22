@@ -33,5 +33,41 @@ namespace MAS_Końcowy.Services
                 }
             }
         }
+
+        public static void ChangePrice(Dish dish, double newMargin)
+        {
+            using (var context = new MASContext())
+            {
+                double sum = 0.0;
+                var contents = context.DishContents.Include(a => a.Ingredient).Where(a => a.DishId == dish.Id).ToList();
+
+                foreach (var content in contents)
+                {
+                    var quantity = (double)content.Quantity;
+                    var pricePerKg = (double)content.Ingredient.PricePerKg;
+                    sum += quantity * pricePerKg;
+                }
+
+                sum += sum * newMargin;
+
+                dish.Price = (Decimal)sum;
+                Dish EditedDish = context.Dishes.Where(a => a.Id == dish.Id).FirstOrDefault();
+                EditedDish.Price = (Decimal) sum;
+                context.Update(EditedDish);
+                context.SaveChanges();
+            }
+        }
+
+        public static Dish Get(Dish dish)
+        {
+            if (dish == null)
+            {
+                throw new Exception("Passed argument is null");
+            }
+            using (var context = new MASContext())
+            {
+                return context.Dishes.FirstOrDefault(a => a.Id == dish.Id);
+            }
+        }
     }
 }

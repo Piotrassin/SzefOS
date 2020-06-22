@@ -8,27 +8,38 @@ namespace MAS_Końcowy.Model
     public class Menu
     {
         public int Id { get; set; }
-        public double ProfitMargin { get; private set; }
+        public double ProfitMargin { get; set; }
         public ICollection<Dish> Dishes { get; set; }
 
 
 
-        //public Menu() { }
+        public Menu() { }
 
-        //public Menu(double profitMargin)
-        //{
-        //    ProfitMargin = profitMargin;
+        public Menu(double profitMargin)
+        {
+            ProfitMargin = profitMargin;
 
-        //}
+        }
 
-        //public void RemoveDish(Dish dish)
-        //{
-        //    throw new NotImplementedException();
-        //}
 
-        //public void AddDish(Dish dish)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public void RemoveDish(Dish dish)
+        {
+            if (Dishes.Contains(dish))
+            {
+                Dishes.Remove(dish);
+                dish.Menu = null;
+            }
+        }
+
+        public void AddDish(Dish dish)
+        {
+            if (!Dishes.Contains(dish))
+            {
+                Dishes.Add(dish);
+                dish.Menu = this;
+            }
+        }
+
+
     }
 }
