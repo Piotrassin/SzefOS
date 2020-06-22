@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using System.Reflection;
-using System.Text;
 
 namespace MAS_Końcowy.Model
 {

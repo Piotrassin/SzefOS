@@ -25,7 +25,7 @@ namespace MAS_Końcowy
             contents = DishService.GetContents(dish.Id);
             InitializeComponent();
             DataGridDishes.ItemsSource = contents;
-            TextBlockPrice.Content = dish.Price;
+            TextBlockPrice.Content = dish.Price + " PLN";
             DishNameTextBox.Text = dish.Name;
         }
 

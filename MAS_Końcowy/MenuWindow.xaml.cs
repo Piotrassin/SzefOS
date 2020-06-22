@@ -1,18 +1,6 @@
 ﻿using MAS_Końcowy.Model;
 using MAS_Końcowy.Services;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Menu = MAS_Końcowy.Model.Menu;
 
 namespace MAS_Końcowy
@@ -27,7 +15,7 @@ namespace MAS_Końcowy
         {
             CurrentMenu = MenuService.GetMenu(menu.Id);
             InitializeComponent();
-            TextBlockMarginProfit.Content = CurrentMenu.ProfitMargin.ToString();
+            TextBlockMarginProfit.Content = (CurrentMenu.ProfitMargin * 100).ToString() + " %" ;
             DataGridDishes.ItemsSource = MenuService.GetDishes(menu.Id);
         }
 
@@ -68,7 +56,7 @@ namespace MAS_Końcowy
         {
             CurrentMenu = MenuService.GetMenu(CurrentMenu.Id);
             TextBlockMarginProfit.Content = CurrentMenu.ProfitMargin.ToString();
-            DataGridDishes.ItemsSource = MenuService.GetDishes(1);
+            DataGridDishes.ItemsSource = MenuService.GetDishes(CurrentMenu.Id);
         }
     }
 }

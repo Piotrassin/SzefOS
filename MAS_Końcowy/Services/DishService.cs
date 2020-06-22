@@ -52,7 +52,7 @@ namespace MAS_Końcowy.Services
 
                 dish.Price = (Decimal)sum;
                 Dish EditedDish = context.Dishes.Where(a => a.Id == dish.Id).FirstOrDefault();
-                EditedDish.Price = (Decimal) sum;
+                EditedDish.Price = (Decimal)Math.Round(sum, 2);
                 context.Update(EditedDish);
                 context.SaveChanges();
             }

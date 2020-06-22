@@ -5,15 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MAS_Końcowy"
         mc:Ignorable="d"
-        Title="DishWindow" Height="450" Width="800">
-    <StackPanel  Margin="10" >
-        <Grid>
+        Title="DishWindow" Height="450" Width="800"
+        Background="PapayaWhip">
+    <StackPanel>
+        <Grid Background="Black">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="6*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Content="SzefOS"/>
+            <Label Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Content="SzefOS" Foreground="White"/>
 
         </Grid>
 
@@ -31,7 +32,7 @@
         <Label Grid.Column="0" VerticalAlignment="Center" FontSize="12" Content="Zawarte składniki"/>
 
         
-        <Grid Margin="0 0 10 20">
+        <Grid Margin="10 0 10 10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="*"/>
@@ -50,7 +51,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="2*" Header="Nazwa" Binding="{Binding Ingredient.Name}"/>
                     <DataGridTextColumn Width="*" Header="Cena za 1 kg" Binding="{Binding Ingredient.PricePerKg}"/>
-                    <DataGridTextColumn Width="*" Header="Ilość" Binding="{Binding Quantity}"/>
+                    <DataGridTextColumn Width="*" Header="Ilość w kg" Binding="{Binding Quantity}"/>
                 </DataGrid.Columns>
             </DataGrid>
 

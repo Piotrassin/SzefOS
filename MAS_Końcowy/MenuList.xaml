@@ -5,19 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MAS_Końcowy"
         mc:Ignorable="d"
+        Background="PapayaWhip"
         Title="MenuList" Height="600" Width="1000">
     <StackPanel>
-        <Grid>
+        <Grid Background="Black">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="6*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Content="SzefOS"/>
+            <Label Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Content="SzefOS" Foreground="White"/>
         </Grid>
 
 
-        <Label Padding="20 30 0 10" FontSize="14" Content="Dostępne menu"/>
+        <Label Padding="20 30 0 0" FontSize="14" Content="Lista stworzonych menu"/>
         <Grid Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
